@@ -8,13 +8,14 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/tdv/go-care"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
 	"log"
 	"os"
 	api "proto/api/pb"
 	"time"
+
+	"github.com/pantheon-lab/go-care"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 func main() {
@@ -45,7 +46,7 @@ func main() {
 		opts.Methods.Add("/api.GreeterService/SayHello", time.Second*60)
 
 		unary := care.NewClientUnaryInterceptor(opts)
-		grpcopts = append(grpcopts, unary)
+		grpcopts = append(grpcopts, grpc.WithUnaryInterceptor(unary))
 	}
 	conn, err := grpc.Dial(
 		fmt.Sprintf("%s:%d", *host, *port),

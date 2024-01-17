@@ -1,5 +1,5 @@
-[![build workflow](https://github.com/tdv/go-care/actions/workflows/main.yml/badge.svg?event=push)](https://github.com/tdv/go-care/actions)
-[![Go Reference](https://pkg.go.dev/badge/github.com/tdv/go-care.svg)](https://pkg.go.dev/github.com/tdv/go-care)
+[![build workflow](https://github.com/pantheon-lab/go-care/actions/workflows/main.yml/badge.svg?event=push)](https://github.com/pantheon-lab/go-care/actions)
+[![Go Reference](https://pkg.go.dev/badge/github.com/pantheon-lab/go-care.svg)](https://pkg.go.dev/github.com/pantheon-lab/go-care)
 # go-care
 
 A library for gRPC response memoization in Go aims to improve common performance of any project having made real
@@ -11,7 +11,7 @@ _**Caching might be almost a codeless solution.**_
 
 _**Adding a couple gRPC interceptors to the project enables the caching usage at the both sides (client-, server-side) out of the box. Pay more attention to the logic and less on the secondary  (caching at least).**_
 
-A few [examples](https://github.com/tdv/go-care/tree/main/examples) will make the start easier.
+A few [examples](https://github.com/pantheon-lab/go-care/tree/main/examples) will make the start easier.
 
 # Introduction
 
@@ -57,7 +57,7 @@ package main
 
 import (
 ...
-"github.com/tdv/go-care"
+"github.com/pantheon-lab/go-care"
 ...
 )
 
@@ -100,7 +100,7 @@ package main
 
 import (
 ...
-"github.com/tdv/go-care"
+"github.com/pantheon-lab/go-care"
 ...
 )
 
@@ -128,16 +128,16 @@ func main() {
 }
 ```
 
-More details you'll find among the [examples](https://github.com/tdv/go-care/tree/main/examples)
+More details you'll find among the [examples](https://github.com/pantheon-lab/go-care/tree/main/examples)
 
 # Examples
 
-The [examples](https://github.com/tdv/go-care/tree/main/examples) demonstrate go-care package's features. Having run
+The [examples](https://github.com/pantheon-lab/go-care/tree/main/examples) demonstrate go-care package's features. Having run
 server and client with different param-set you can try out all features.
 
-- ['Greeter'](https://github.com/tdv/go-care/tree/main/examples/greeter) is close to the canonical 'Hello World'
+- ['Greeter'](https://github.com/pantheon-lab/go-care/tree/main/examples/greeter) is close to the canonical 'Hello World'
   example, demonstrating all basic features.
-- ['Redis Greeter'](https://github.com/tdv/go-care/tree/main/examples/redis_greeter) is the same, but with Redis like an
+- ['Redis Greeter'](https://github.com/pantheon-lab/go-care/tree/main/examples/redis_greeter) is the same, but with Redis like an
   external cache is.
 
 # Compiler and OS

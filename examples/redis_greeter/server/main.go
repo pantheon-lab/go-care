@@ -8,17 +8,18 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/tdv/go-care"
+	"log"
+	"net"
+	"os"
+	api "proto/api/pb"
+	"rediscache"
+	"time"
+
+	"github.com/pantheon-lab/go-care"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/reflection"
 	"google.golang.org/grpc/status"
-	"log"
-	"net"
-	"os"
-	"proto/api/pb"
-	"rediscache"
-	"time"
 )
 
 type server struct {
@@ -83,7 +84,7 @@ func main() {
 		opts.Methods.Add("/api.GreeterService/SayHello", time.Second*60)
 		opts.Cache = cache
 		unary := care.NewServerUnaryInterceptor(opts)
-		grpcsrv = grpc.NewServer(unary)
+		grpcsrv = grpc.NewServer(grpc.ChainUnaryInterceptor(unary))
 	} else {
 		grpcsrv = grpc.NewServer()
 	}

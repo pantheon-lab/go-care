@@ -8,9 +8,10 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/go-redis/redis/v8"
-	"github.com/tdv/go-care"
 	"time"
+
+	"github.com/go-redis/redis/v8"
+	"github.com/pantheon-lab/go-care"
 )
 
 type redisCache struct {

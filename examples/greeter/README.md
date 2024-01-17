@@ -11,7 +11,7 @@ server-side. Having been playing with flags you'll notice how everything works, 
 # Build
 
 ```bash
-git clone https://github.com/tdv/go-care
+git clone https://github.com/pantheon-lab/go-care
 cd go-care/examples/greeter/
 make
 ```
