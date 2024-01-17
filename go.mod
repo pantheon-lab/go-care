@@ -1,4 +1,4 @@
-module github.com/tdv/go-care
+module github.com/pantheon-lab/go-care
 
 go 1.19
 
