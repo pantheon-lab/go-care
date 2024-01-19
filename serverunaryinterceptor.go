@@ -47,3 +47,15 @@ func NewServerUnaryInterceptor(opts *Options) grpc.UnaryServerInterceptor {
 
 	return interceptor.Unary()
 }
+
+func NewServerOption(opts *Options) grpc.ServerOption {
+	if opts == nil {
+		panic("The options must not be provided as a nil-pointer.")
+	}
+
+	interceptor := unaryServerInterceptor{
+		interceptor: newInterceptor(opts),
+	}
+
+	return grpc.UnaryInterceptor(interceptor.Unary())
+}

@@ -63,3 +63,15 @@ func NewClientUnaryInterceptor(opts *Options) grpc.UnaryClientInterceptor {
 
 	return interceptor.Unary()
 }
+
+func NewClientDialOption(opts *Options) grpc.DialOption {
+	if opts == nil {
+		panic("The options must not be provided as a nil-pointer.")
+	}
+
+	interceptor := unaryClientInterceptor{
+		interceptor: newInterceptor(opts),
+	}
+
+	return grpc.WithUnaryInterceptor(interceptor.Unary())
+}
