@@ -8,12 +8,13 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"google.golang.org/grpc/metadata"
 	"log"
 	"reflect"
 	"sort"
 	"strings"
 	"time"
+
+	"google.golang.org/grpc/metadata"
 )
 
 type interceptor struct {
@@ -120,6 +121,10 @@ func (s *interceptor) execute(
 				}
 
 				resp, err := handler(ctx, req)
+
+				if err != nil {
+					return nil, err
+				}
 
 				if !hasType {
 					err = s.types.Put(key, resp)
